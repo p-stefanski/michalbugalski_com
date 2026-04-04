@@ -1,3 +1,9 @@
-baseURL = 'https://michalbugalski.com/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://p-stefanski.github.io/michalbugalski_com/'
+locale = 'pl-pl'
+title = 'Moja strona'
+theme = "hugo-book"
+
+[params]
+  BookSection = "docs"       # folder z treścią w sidebar
+  BookToC = true             # spis treści w artykule
+  BookSearch = true          # wyszukiwarka w sidebarze
