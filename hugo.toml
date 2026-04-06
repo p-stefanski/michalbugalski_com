@@ -1,9 +1,30 @@
 baseURL = 'https://p-stefanski.github.io/michalbugalski_com/'
 locale = 'pl-pl'
-title = 'Moja strona'
-theme = "hugo-book"
+title = 'Michał Bugalski'
+defaultContentLanguage = "pl"
+defaultContentLanguageInSubdir = false
 
 [params]
   BookSection = "docs"       # folder z treścią w sidebar
   BookToC = true             # spis treści w artykule
-  BookSearch = true          # wyszukiwarka w sidebarze
+  BookSearch = false          # wyszukiwarka w sidebarze
+
+[languages]
+
+  [languages.pl]
+  languageName = "Polski"
+  languageCode = "pl-PL"
+  contentDir = "content/pl"
+  weight = 1
+  title = "Michał Bugalski"
+
+  [languages.en]
+  languageName = "English"
+  languageCode = "en-US"
+  contentDir = "content/en"
+  weight = 2
+  title = "Michał Bugalski"
+
+[module]
+[[module.imports]]
+path = "github.com/alex-shpak/hugo-book"
