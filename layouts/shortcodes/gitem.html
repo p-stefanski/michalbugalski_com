@@ -1,15 +1,18 @@
-{{ $src := .Get "src" }} {{ $yt := .Get "youtube" }} {{ $caption := .Get
-"caption" }} {{ $thumb := .Get "thumb" }} {{ if $yt }} {{ $videoThumb := $thumb
-| default (printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $yt) }}
+{{ $src := .Get "src" }} {{ $yt := .Get "youtube" }} {{ $title := .Get "title" |
+default (.Get "caption") | default "" }} {{ $caption := .Get "caption" | default
+"" }} {{ $alt := .Get "alt" | default $title | default $caption | default
+"Gallery item" }} {{ $thumb := .Get "thumb" }} {{ if $yt }} {{ $videoThumb :=
+$thumb | default (printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $yt) }}
 <a
     href="https://www.youtube.com/watch?v={{ $yt }}"
-    class="glightbox"
+    class="glightbox is-video"
     data-type="video"
+    aria-label="{{ $alt }}"
 >
-    <img src="{{ $videoThumb }}" alt="{{ $caption }}" />
+    <img src="{{ $videoThumb }}" alt="{{ $alt }}" loading="lazy" />
 </a>
 {{ else }} {{ $imageThumb := $thumb | default $src }}
-<a href="{{ $src }}" class="glightbox">
-    <img src="{{ $imageThumb }}" alt="{{ $caption }}" />
+<a href="{{ $src }}" class="glightbox" aria-label="{{ $alt }}">
+    <img src="{{ $imageThumb }}" alt="{{ $alt }}" loading="lazy" />
 </a>
 {{ end }}
