@@ -1,0 +1,40 @@
+{{ $folder := .Get "folder" }}
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<style>
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+    .gallery-grid a {
+        display: block;
+    }
+    .gallery-grid img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0px;
+        display: block;
+    }
+</style>
+
+<div
+    class="gallery-grid"
+    style="
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    "
+>
+    {{ .Inner }}
+</div>
+
+<script>
+    GLightbox({ selector: ".glightbox" });
+</script>

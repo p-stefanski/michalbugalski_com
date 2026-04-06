@@ -1,0 +1,15 @@
+{{ $src := .Get "src" }} {{ $yt := .Get "youtube" }} {{ $caption := .Get
+"caption" }} {{ $thumb := .Get "thumb" }} {{ if $yt }} {{ $videoThumb := $thumb
+| default (printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $yt) }}
+<a
+    href="https://www.youtube.com/watch?v={{ $yt }}"
+    class="glightbox"
+    data-type="video"
+>
+    <img src="{{ $videoThumb }}" alt="{{ $caption }}" />
+</a>
+{{ else }} {{ $imageThumb := $thumb | default $src }}
+<a href="{{ $src }}" class="glightbox">
+    <img src="{{ $imageThumb }}" alt="{{ $caption }}" />
+</a>
+{{ end }}
