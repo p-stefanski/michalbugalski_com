@@ -1,4 +1,4 @@
-baseURL = 'https://p-stefanski.github.io/michalbugalski_com/'
+baseURL = 'https://michalbugalski_com'
 locale = 'pl-pl'
 title = 'Michał Bugalski'
 defaultContentLanguage = "pl"
